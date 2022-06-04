@@ -1,0 +1,31 @@
+{
+  "name": "node-inspirobot",
+  "version": "1.0.0",
+  "description": "Fetches randomly generated inspirational quotes from www.inspirobot.me.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorzimmer/node-inspirobot.git"
+  },
+  "keywords": [
+    "inspirational",
+    "qoutes",
+    "inspirobot",
+    "random",
+    "unlimited",
+    "ai"
+  ],
+  "author": "HotDot",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/victorzimmer/node-inspirobot/issues"
+  },
+  "homepage": "https://github.com/victorzimmer/node-inspirobot#readme",
+  "dependencies" :
+  {
+    "request" : "*"
+  }
+}
