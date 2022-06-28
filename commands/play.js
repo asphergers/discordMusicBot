@@ -30,8 +30,6 @@ module.exports = {
         const permissions = voice_channel.permissionsFor(message.client.user);
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
-        console.log(message.guild.id + "---- line 29 of play.js")
-        console.log(queue + " line 30 of play.js")
         
 
 
@@ -135,7 +133,6 @@ const video_player = async (guild, song, message) => {
     })
 
     const song_queue = queue.get(guild.id);
-    console.log(`${song_queue} ---- from play.js line 110`)
     //If no song is left in the server queue. Leave the voice channel and delete the key and value pair from the global queue.
     if (!song) {
         connection.destroy();
@@ -143,7 +140,6 @@ const video_player = async (guild, song, message) => {
         return;
     }
     const stream = await play.stream(song.url);
-    console.log(song.url);
     const player = createAudioPlayer({
         behaviors: {
             noSubscriber: NoSubscriberBehavior.Play
@@ -152,6 +148,10 @@ const video_player = async (guild, song, message) => {
     const resource = createAudioResource(stream.stream, {inputType : stream.type});
     player.play(resource);
     connection.subscribe(player)
+    player.on('error', error => {
+        console.log("error found during playtime");
+        console.log(error);
+    })
     player.on(AudioPlayerStatus.Idle, () => {
         if (song_queue.songs.loop){
             video_player(guild, song_queue.songs[0], message)
