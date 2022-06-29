@@ -1,3 +1,4 @@
+//THIS WHOLE FILE NEEDS TO BE REWORKED
 const queue = require('./map').map
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
 
         const server_queue = queue.get(message.guild.id);
-
+        
         if(cmd === 'clear') {
             const song_queue = queue.get(message.guild.id)
             song_queue.songs = song_queue.songs[0]

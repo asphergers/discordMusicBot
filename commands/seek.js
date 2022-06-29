@@ -59,7 +59,6 @@ module.exports = {
 
         const time = parseInt(args[0]);
         //const time = args[0]
-        console.log(time+1);
         if (Number.isInteger(time)) { //FIGURE OUT  HOW TO CHECK IF SKIP GOES OVER TIME!!!!!!!!!!
             try {
                 return video_player(message.guild, server_queue.songs[0], message, args[0]);
@@ -68,7 +67,7 @@ module.exports = {
             }
 
         } else {
-            return message.channel.send("not in integer or trying to skip too far ahead");
+            return message.channel.send("not an integer or trying to skip too far ahead");
         }
 
         

@@ -22,13 +22,11 @@ module.exports = {
             var list = []
             try {
                 for(var i = 0; i < server_queue.songs.length; i++) {
-                    //console.log(server_queue.songs[i].title)
                     list.push(`${server_queue.songs[i].title}\n`)
                 }
             } catch {
                 return message.channel.send("nothing in queue");
             }
-            //message.channel.send(`${require('util').inspect(list)}`)
             try{
                 var output = "";
                 for (var i = 0; i<list.length; i++) {

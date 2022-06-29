@@ -39,7 +39,6 @@ module.exports = {
         if (cmd === 'play' || cmd === 'p'){
             if (!args.length) return message.channel.send('input a second argument and stop trying to break me :(');
             let song = {};
-
             //if args[0] is link
             if (args[0].startsWith('http') && (play.validate(args[0]) === "so_track" || "so_playlist" || "yt_video")) {
                 console.log((await play.validate(args[0])));
